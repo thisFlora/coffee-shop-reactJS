@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/img/logo.png";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
@@ -17,10 +18,11 @@ const NavBar = () => {
                         <Nav.Link href="#link">Contacto</Nav.Link>
                         <Nav.Link href="#link">Carrito</Nav.Link>
                     </Nav>
+                    <CartWidget />
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-    )
+    );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,9 +1,37 @@
-nav {
-    .nav-link{
-        margin-right: 60px;
-    }
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+html,
+body,
+#root {
+    height: 100vh;
+}
+
+#root{
+    display:flex;
+    flex-direction: column;
+}
+
+header{
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    nav {
+        .nav-link{
+            margin-right: 60px;
+        }
+        .logo {
+            width: 300px;
+            height: 60px;
+        }
+    }
+}
+
+main {
+    flex-grow: 1;
+}
+
 footer {
     text-align: center;
     position: fixed;
@@ -12,8 +40,10 @@ footer {
     height: 2.5rem;
 }
 
-.logo {
-    width:200px;
-    height: 50px;
+h1{
+    text-align: center;
+    color: #7881bd;
 }
+
+
 

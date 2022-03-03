@@ -1,17 +1,15 @@
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
-import { Container } from 'react-bootstrap';
+import Main from '../components/Main.js';
 
 function App() {
     return (
         <>
             <Header />
-            <Container as ="main">
-            </Container>
-
+            <Main />
             <Footer />
         </>
-    )
+    );
 }
 
-export default App
+export default App;

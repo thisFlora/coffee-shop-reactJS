@@ -6,8 +6,7 @@ function Header() {
         <header>
             <NavBar />
         </header>
-    )
-
+    );
 }
 
-export default Header
+export default Header;
