@@ -16,7 +16,6 @@ const NavBar = () => {
                         <Nav.Link href="#link">Inicio</Nav.Link>
                         <Nav.Link href="#link">Productos</Nav.Link>
                         <Nav.Link href="#link">Contacto</Nav.Link>
-                        <Nav.Link href="#link">Carrito</Nav.Link>
                     </Nav>
                     <CartWidget />
                 </Navbar.Collapse>
