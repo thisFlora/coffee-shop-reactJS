@@ -13,7 +13,6 @@ const ItemCount = (props) => {
     }
 
     const restar = () => {
-        console.log(contador);
         if(contador > 0){
             setContador(contador - 1);
         }
