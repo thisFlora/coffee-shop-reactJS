@@ -30,6 +30,9 @@ header{
 
 main {
     flex-grow: 1;
+    .card {
+        text-align: center;
+    }
 }
 
 footer {
