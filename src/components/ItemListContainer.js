@@ -7,18 +7,19 @@ let productosIniciales = [
         id: 1,
         nombre: "Café Catuaí",
         precio: 1500,
-        img: './src/assets/img/brasil01.png'
+        img: '../assets/img/brasil01.png'
     },
     {
         id:2,
         nombre: "Chiapas México",
         precio: 1400,
-        img: './assets/img/mexico01.png'
+        img: '../assets/img/mexico01.png'
     },
     {
         id:3,
         nombre: "Kit Cafetero",
-        img: './assets/img/kit01.png'
+        precio: 3000,
+        img: '../assets/img/kit01.png'
     }
 ]
 

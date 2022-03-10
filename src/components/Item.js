@@ -1,11 +1,12 @@
 import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
+import img from '../assets/img/mexico01.png'
 
 const Item = (props) => {
 	return (
 		<Col>
 			<Card style={{ width: "24rem" }}>
-				<Card.Img variant="top" src={props.producto.img} />
+				<Card.Img variant="top" src= {img} />
 				<Card.Body>
 					<Card.Title>
 						{props.producto.nombre} | $ {props.producto.precio}
