@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
-import logo from "../assets/img/logo.png";
+import logo from "../assets/img/logo.svg";
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
