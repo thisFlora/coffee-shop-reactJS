@@ -1,27 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import ItemCount from './ItemCount.js';
 import ItemList from './ItemList.js';
+import Productos from '../data/Productos.js';
 
-let productosIniciales = [
-    {
-        id: 1,
-        nombre: "Café Catuaí",
-        precio: 1500,
-        img: '../assets/img/brasil01.png'
-    },
-    {
-        id:2,
-        nombre: "Chiapas México",
-        precio: 1400,
-        img: '../assets/img/mexico01.png'
-    },
-    {
-        id:3,
-        nombre: "Kit Cafetero",
-        precio: 3000,
-        img: '../assets/img/kit01.png'
-    }
-]
+let productosIniciales = Productos;
 
 const ItemListContainer = (props) => {
     const miOnAdd = (count) => {
@@ -39,8 +21,8 @@ const ItemListContainer = (props) => {
 
         useEffect(()=> {
         promesa
-        .then(()=> {
-            setProductos(productosIniciales);
+        .then((response)=> {
+            setProductos(response);
         }).catch((e) => {
             console.log(e);
         }).finally(() => {
@@ -51,6 +33,7 @@ const ItemListContainer = (props) => {
     return (
             <>
             <h1>{props.greeting}</h1>
+            <h3>Desafio: Catálogo con MAPS y Promises</h3>
 			<ItemList productos={productos} loading={loading} />
             <ItemCount onAdd={miOnAdd} initial={0} stock={50}/>
             </>

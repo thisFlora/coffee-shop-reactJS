@@ -24,7 +24,7 @@ const ItemCount = (props) => {
     }
 
     return (
-        <Card>
+        <Card style={{padding: "10px"}}>
             <Card.Header>Desafio Componentes II</Card.Header>
             <Card.Body>
                 <Card.Title>Cafecitos☕</Card.Title>

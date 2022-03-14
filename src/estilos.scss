@@ -29,17 +29,20 @@ main {
     .card {
         text-align: center;
     }
+    .containerDetail {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
 }
 
 footer {
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 2.5rem;
 }
 
-h1{
+h1, h3{
     text-align: center;
     color: #7881bd;
 }
