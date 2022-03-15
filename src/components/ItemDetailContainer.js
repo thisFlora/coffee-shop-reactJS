@@ -6,18 +6,18 @@ import { Container, Row } from 'react-bootstrap';
 let productosActualizados = Productos;
 
 const ItemDetailContainer = () => {
-    const [productos, setProductos] = useState([]);
+    const [producto, setProducto] = useState([]);
 
     const promesa = new Promise((res, rej) => {
         setTimeout(()=> {
-            res(productosActualizados);
+            res(productosActualizados[0]);
         },2000)
     });
 
     useEffect(()=> {
         promesa
         .then((response)=> {
-            setProductos(response);
+            setProducto(response);
         }).catch((e) => {
             console.log(e);
         });
@@ -27,10 +27,8 @@ const ItemDetailContainer = () => {
         <>
         <Container className= "justify-content-center containerDetail">
             <h3>Desafio: Detalle de Producto</h3>
-				<Row xs={1} md={2} xl={3} className="g-4">
-					{productos.map((producto, indice) => {
-						return <ItemDetail producto={producto} key={indice} />;
-					})}
+				<Row xs={1} md={1} xl={1} className="g-4">
+						<ItemDetail producto={producto} key={producto.id} />
 				</Row>
 		</Container>
         </>
