@@ -1,41 +1,46 @@
 import { React, useState, useEffect } from 'react';
-import ItemCount from './ItemCount.js';
 import ItemList from './ItemList.js';
 import Productos from '../data/Productos.js';
+import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 let productosIniciales = Productos;
 
 const ItemListContainer = (props) => {
-    const miOnAdd = (count) => {
-        console.log(count);
-    }
 
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
+    const {idCategoria} = useParams();
 
+
+    useEffect(()=> {
         const promesa = new Promise((res, rej) => {
             setTimeout(()=> {
-                res(productosIniciales);
+                if(idCategoria === undefined){
+                    res(productosIniciales);
+                }else {
+                    const productosFiltrados = productosIniciales.filter((el) => el.categoria === idCategoria);
+                    res(productosFiltrados);
+                }
+
             },2000)
         });
 
-        useEffect(()=> {
         promesa
         .then((response)=> {
             setProductos(response);
         }).catch((e) => {
-            console.log(e);
+            toast.error(e);
         }).finally(() => {
             setLoading(false);
         });
-});
+},[idCategoria]);
 
     return (
             <>
             <h1>{props.greeting}</h1>
             <h3>Desafio: Catálogo con MAPS y Promises</h3>
 			<ItemList productos={productos} loading={loading} />
-            <ItemCount onAdd={miOnAdd} initial={0} stock={50}/>
             </>
     );
 };

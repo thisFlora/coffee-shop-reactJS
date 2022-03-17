@@ -1,6 +1,7 @@
 let productos = [
     {
         "id": 1,
+        "categoria": "simple",
         "nombre": "Café Catuaí",
         "precio": 1500,
         "img": "./img/brasil01.png",
@@ -8,6 +9,7 @@ let productos = [
     },
     {
         "id": 2,
+        "categoria": "simple",
         "nombre": "Chiapas México",
         "precio": 1400,
         "img": "./img/mexico01.png",
@@ -15,6 +17,7 @@ let productos = [
     },
     {
         "id": 3,
+        "categoria": "combo",
         "nombre": "Kit Cafetero",
         "precio": 3000,
         "img": "./img/kit01.png",
@@ -22,6 +25,7 @@ let productos = [
     },
     {
         "id": 4,
+        "categoria": "combo",
         "nombre": "Kit Cafetero 2",
         "precio": 3500,
         "img": "./img/kit02.png",
@@ -29,6 +33,7 @@ let productos = [
     },
     {
         "id": 5,
+        "categoria": "simple",
         "nombre": "Vietnam",
         "precio": 1800,
         "img": "./img/vietnam.png",
@@ -36,6 +41,7 @@ let productos = [
     },
     {
         "id": 6,
+        "categoria": "simple",
         "nombre": "Carpicornio",
         "precio": 1500,
         "img": "./img/brasil02.png",

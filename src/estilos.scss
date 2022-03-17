@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 html,
@@ -16,10 +17,49 @@ body,
 }
 
 header{
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(34, 34, 34, 0.2);
     nav {
-        .nav-link{
-            margin-right: 60px;
+        a{
+            margin-right: 40px;
+            color:rgb(163, 94, 212);
+            text-decoration: none;
+            margin-left: 1rem;
+
+            &:before {
+                content : "[";
+                position: relative;
+                left: -5px;
+                opacity: 0;
+                transition: all 0.3s ease;
+
+            }
+            &:after {
+                content : "]";
+                position: relative;
+                right: -5px;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            &.active::after {
+                opacity: 1;
+                right: -10px;
+                color:rgb(173, 114, 216);
+            }
+            
+            &.active::before {
+                opacity: 1;
+                color:rgb(173, 114, 216);
+            }
+
+            &:focus{
+                color:rgb(173, 114, 216);
+            }
+
+            &:hover {
+                color:rgb(184, 134, 219);
+            }
+
         }
     }
 }
@@ -46,6 +86,5 @@ h1, h3{
     text-align: center;
     color: #7881bd;
 }
-
 
 

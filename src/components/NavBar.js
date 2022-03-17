@@ -2,22 +2,26 @@ import React from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/img/logo.svg";
 import CartWidget from "./CartWidget";
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand href="/">
                 <img alt="plant" src={logo} className="d-inline-block align-top logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                    <Nav >
-                        <Nav.Link href="#link">Inicio</Nav.Link>
-                        <Nav.Link href="#link">Productos</Nav.Link>
-                        <Nav.Link href="#link">Contacto</Nav.Link>
+                    <Nav>
+                        <NavLink to="/">Inicio</NavLink>
+                        <NavLink to="/categoria/simple">Simple</NavLink>
+                        <NavLink to="/categoria/combo">Combo</NavLink>
+                        <NavLink to="/contacto">Contacto</NavLink>
                     </Nav>
-                    <CartWidget />
+                    <NavLink to="/carrito">
+                        <CartWidget />
+                    </NavLink>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

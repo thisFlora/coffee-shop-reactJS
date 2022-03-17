@@ -2,26 +2,29 @@ import { React, useState, useEffect } from 'react';
 import Productos from '../data/Productos.js';
 import ItemDetail from './ItemDetail.js';
 import { Container, Row } from 'react-bootstrap';
-
-let productosActualizados = Productos;
+import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState([]);
+    const {idProducto} = useParams();
 
-    const promesa = new Promise((res, rej) => {
-        setTimeout(()=> {
-            res(productosActualizados[0]);
-        },2000)
-    });
+    const [producto, setProducto] = useState({});
 
     useEffect(()=> {
+        const promesa = new Promise((res, rej) => {
+            setTimeout(()=> {
+                res(Productos);
+            },2000)
+        });
+
         promesa
         .then((response)=> {
-            setProducto(response);
+            const producto = response.find((el)=>el.id===parseInt(idProducto))
+            setProducto(producto);
         }).catch((e) => {
-            console.log(e);
+            toast.error(e);
         });
-    });
+    }, [idProducto]);
 
     return (
         <>

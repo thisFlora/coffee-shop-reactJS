@@ -4,7 +4,6 @@ import { Card, Button } from 'react-bootstrap';
 const ItemCount = (props) => {
     const [contador, setContador] = useState(props.initial)
     let [deshabilitar, setBtn] = useState(true)
-    const { onAdd } = props;
 
     const aumentar = () => {
         if(contador < props.stock){
@@ -34,7 +33,7 @@ const ItemCount = (props) => {
                 <Button variant="outline-secondary" onClick={aumentar}>+</Button>
             </Card.Body>
             <Card.Footer>
-            <Button variant="outline-primary" disabled={deshabilitar} onClick={onAdd(contador)}>Agregar al Carrito</Button>
+            <Button variant="outline-primary" disabled={deshabilitar}>Agregar al Carrito</Button>
             </Card.Footer>
         </Card>
     )
