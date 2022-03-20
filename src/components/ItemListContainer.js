@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 let productosIniciales = Productos;
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({greeting}) => {
 
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
@@ -38,7 +38,7 @@ const ItemListContainer = (props) => {
 
     return (
             <>
-            <h1>{props.greeting}</h1>
+            <h1>{greeting}</h1>
             <h3>Desafio: Catálogo con MAPS y Promises</h3>
 			<ItemList productos={productos} loading={loading} />
             </>

@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
     const {idProducto} = useParams();
-
     const [producto, setProducto] = useState({});
 
     useEffect(()=> {
@@ -19,7 +18,7 @@ const ItemDetailContainer = () => {
 
         promesa
         .then((response)=> {
-            const producto = response.find((el)=>el.id===parseInt(idProducto))
+            const producto = response.find((el)=> el.id === parseInt(idProducto))
             setProducto(producto);
         }).catch((e) => {
             toast.error(e);
