@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import ItemList from './ItemList.js';
-import Productos from '../data/Productos.js';
+import Productos from '../mocks/Productos.js';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 

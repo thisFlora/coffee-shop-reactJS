@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import Productos from '../data/Productos.js';
+import Productos from '../mocks/Productos.js';
 import ItemDetail from './ItemDetail.js';
 import { Container, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';

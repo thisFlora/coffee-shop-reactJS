@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="/">
+                <Navbar.Brand as={NavLink} to="/">
                 <img alt="plant" src={logo} className="d-inline-block align-top logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
