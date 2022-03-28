@@ -80,6 +80,7 @@ footer {
     bottom: 0;
     width: 100%;
     height: 2.5rem;
+    margin-top: 20px;
 }
 
 h1, h3{
@@ -91,4 +92,34 @@ h1, h3{
     cursor: pointer;
     color: #7881bd;
     font-size: 1.5rem;
+}
+
+.div-btnClear {
+    display: flex;
+    justify-content: flex-end;
+    .btn-clear {
+        background-color: #7881bd;
+        color: #fff;
+    }
+    .btn-clear:hover {
+        background-color: #8a92c3;
+        color: #fff;
+    }
+}
+
+.div-btnVacio, .div-img{
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    .btn-vacio {
+        background-color: #7881bd;
+        color: #fff;
+        border-radius: 5px;
+        margin-left: 30px;
+    }
+    .btn-vacio:hover {
+        background-color: #8a92c3;
+        color: #fff;
+        border-radius: 5px;
+    }
 }

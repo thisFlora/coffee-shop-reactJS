@@ -14,8 +14,8 @@ const Item = ({producto}) => {
 					<div className="divider"></div>
 				</Card.Body>
 				<NavLink to={`/item/${producto.id}`}>
-				<Button variant="outline-primary" className="m-2">
-					Ver detalle
+				<Button variant="outline-secondary" className="m-2">
+					Ver Detalle del Producto
 				</Button>
 				</NavLink>
 			</Card>

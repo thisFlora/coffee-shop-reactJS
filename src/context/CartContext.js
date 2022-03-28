@@ -5,7 +5,8 @@ const { Provider } = contexto;
 
 const CartContext = ({children}) => {
 
-    const [cart, setCart] = useState();
+    const [cart, setCart] = useState([]);
+    const [total, setTotal] = useState(0);
 
     const addItem = (product, count) => {
         let cartProduct = { product, count }
@@ -40,11 +41,24 @@ const CartContext = ({children}) => {
         return cart && cart.some(el=> el.product === product)
     }
 
+    const getTotal = () => {
+        let totalAux = 0;
+        if(cart){
+            cart.forEach(item => {
+                totalAux += item.product.precio * item.count;
+            });
+        }
+        setTotal(totalAux);
+        return totalAux;
+    }
+
     const valorDelContexto = {
         addItem:addItem,
         removeItem:removeItem,
         clear:clear,
-        cart:cart
+        cart:cart,
+        total:total,
+        getTotal:getTotal,
     }
     return (
         <Provider value={valorDelContexto}>
