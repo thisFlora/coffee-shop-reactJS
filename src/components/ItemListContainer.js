@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from 'react';
 import ItemList from './ItemList.js';
-import Productos from '../mocks/Productos.js';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../database/firebase";
 
-let productosIniciales = Productos;
 
 const ItemListContainer = ({greeting}) => {
 
@@ -14,26 +14,57 @@ const ItemListContainer = ({greeting}) => {
 
 
     useEffect(()=> {
-        const promesa = new Promise((res, rej) => {
-            setTimeout(()=> {
-                if(idCategoria === undefined){
-                    res(productosIniciales);
-                }else {
-                    const productosFiltrados = productosIniciales.filter((el) => el.categoria === idCategoria);
-                    res(productosFiltrados);
-                }
 
-            },2000)
-        });
+        const itemsCollection = collection(db, "items");
+		const queryCat = query(itemsCollection, where("categoria", "==", `${idCategoria}`));
 
-        promesa
-        .then((response)=> {
-            setProductos(response);
-        }).catch((e) => {
-            toast.error(e);
-        }).finally(() => {
-            setLoading(false);
-        });
+		const auxiliar = [];
+
+		if (idCategoria === undefined) {
+			const documentos = getDocs(itemsCollection);
+
+			documentos
+				.then((respuesta) => {
+					respuesta.forEach((documento) => {
+						const item = {
+							id: documento.id,
+							...documento.data(),
+						};
+
+						auxiliar.push(item);
+					});
+
+					setProductos(auxiliar);
+				})
+				.catch((e) => {
+					toast.error(e);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		} else {
+			const documentosCat = getDocs(queryCat);
+
+			documentosCat
+				.then((items) => {
+					items.forEach((item) => {
+						const producto = {
+							id: item.id,
+							...item.data(),
+						};
+
+						auxiliar.push(producto);
+					});
+
+					setProductos(auxiliar);
+				})
+				.catch((e) => {
+					toast.error(e);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+		}
 },[idCategoria]);
 
     return (

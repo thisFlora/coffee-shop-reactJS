@@ -1,28 +1,30 @@
 import { React, useState, useEffect } from 'react';
-import Productos from '../mocks/Productos.js';
 import ItemDetail from './ItemDetail.js';
 import { Container, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
+import { getDoc, doc } from "firebase/firestore";
+import {db} from '../database/firebase';
 
 const ItemDetailContainer = () => {
     const {idProducto} = useParams();
     const [producto, setProducto] = useState({});
 
     useEffect(()=> {
-        const promesa = new Promise((res, rej) => {
-            setTimeout(()=> {
-                res(Productos);
-            },2000)
-        });
+        const docRef = doc(db, "items", idProducto);
+		const items = getDoc(docRef);
 
-        promesa
-        .then((response)=> {
-            const producto = response.find((el)=> el.id === parseInt(idProducto))
-            setProducto(producto);
-        }).catch((e) => {
-            toast.error(e);
-        });
+		items
+			.then((item) => {
+				const producto = {
+					id: item.id,
+					...item.data(),
+				};
+				setProducto(producto);
+			})
+			.catch((e) => {
+				toast.error(e);
+			});
     }, [idProducto]);
 
     return (
