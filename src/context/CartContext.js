@@ -44,16 +44,24 @@ const CartContext = ({children}) => {
 
     const getTotal = () => {
         let totalAux = 0;
-        let cantidad = 0;
         if(cart){
             cart.forEach(item => {
                 totalAux += item.product.precio * item.count;
-                cantidad += cantidad + item.count;
             });
         }
-        setTotal(totalAux);
-        setCantidad(cantidad);
+        setTotal(totalAux);;
         return totalAux;
+    }
+
+    const getCantidad = () => {
+        let cantidadAux = 0;
+        if(cart){
+            cart.forEach(item => {
+                cantidadAux += item.count;
+            });
+        }
+        setCantidad(cantidadAux);
+        return cantidadAux;
     }
 
     const valorDelContexto = {
@@ -63,6 +71,7 @@ const CartContext = ({children}) => {
         cart:cart,
         total:total,
         getTotal:getTotal,
+        getCantidad:getCantidad,
         cantidadActual:cantidadActual
     }
     return (

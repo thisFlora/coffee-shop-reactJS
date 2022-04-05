@@ -58,7 +58,7 @@ const Checkout = () => {
                                         <Form.Control type="email" placeholder="Email" autoComplete="off" onChange={handleChange} />
                                    </Form.Group>
 
-                                   <Button variant="primary" onClick={checkOut}>
+                                   <Button variant="primary" type="submit" onClick={()=> {checkOut()}}>
                                         Enviar
                                    </Button>
                               </Form>
