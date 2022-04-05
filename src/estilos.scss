@@ -88,6 +88,11 @@ h1, h3{
     color: #7881bd;
 }
 
+h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .fa-trash-can {
     cursor: pointer;
     color: #7881bd;
@@ -122,4 +127,14 @@ h1, h3{
         color: #fff;
         border-radius: 5px;
     }
+}
+
+.span-cantidad {
+    color:#020202 !important;
+    margin-left: 2px;
+    border-radius: 90% !important;
+}
+
+.p-check{
+    background-color: #7881bd;
 }

@@ -8,14 +8,14 @@ import { db } from "../database/firebase";
 
 const ItemListContainer = ({greeting}) => {
 
-    const [loading, setLoading] = useState(true);
-    const [productos, setProductos] = useState([]);
-    const {idCategoria} = useParams();
+	const [loading, setLoading] = useState(true);
+	const [productos, setProductos] = useState([]);
+	const {idCategoria} = useParams();
 
 
-    useEffect(()=> {
+	useEffect(()=> {
 
-        const itemsCollection = collection(db, "items");
+		const itemsCollection = collection(db, "items");
 		const queryCat = query(itemsCollection, where("categoria", "==", `${idCategoria}`));
 
 		const auxiliar = [];
@@ -30,21 +30,18 @@ const ItemListContainer = ({greeting}) => {
 							id: documento.id,
 							...documento.data(),
 						};
-
 						auxiliar.push(item);
 					});
-
 					setProductos(auxiliar);
 				})
-				.catch((e) => {
-					toast.error(e);
+				.catch(() => {
+					toast.error("Error al cargar los productos");
 				})
 				.finally(() => {
 					setLoading(false);
 				});
 		} else {
 			const documentosCat = getDocs(queryCat);
-
 			documentosCat
 				.then((items) => {
 					items.forEach((item) => {
@@ -52,14 +49,12 @@ const ItemListContainer = ({greeting}) => {
 							id: item.id,
 							...item.data(),
 						};
-
 						auxiliar.push(producto);
 					});
-
 					setProductos(auxiliar);
 				})
 				.catch((e) => {
-					toast.error(e);
+					toast.error("Error al cargar los productos");
 				})
 				.finally(() => {
 					setLoading(false);
@@ -67,13 +62,12 @@ const ItemListContainer = ({greeting}) => {
 		}
 },[idCategoria]);
 
-    return (
-            <>
-            <h1>{greeting}</h1>
-            <h3>Desafio: Catálogo con MAPS y Promises</h3>
-			<ItemList productos={productos} loading={loading} />
-            </>
-    );
+	return (
+			<>
+			<h1>Catálogo de productos</h1>
+				<ItemList productos={productos} loading={loading} />
+			</>
+	);
 };
 
 export default ItemListContainer;

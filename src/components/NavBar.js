@@ -1,11 +1,16 @@
-import React from 'react';
+import { React, useContext} from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/img/logo.svg";
 import CartWidget from "./CartWidget";
 import { NavLink } from 'react-router-dom';
+import { contexto } from "../context/CartContext.js";
 
 const NavBar = () => {
+    const resultado = useContext(contexto);
+    const carrito = resultado.cart;
+
     return (
+        <>
         <Navbar bg="light" expand="lg">
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/">
@@ -19,12 +24,17 @@ const NavBar = () => {
                         <NavLink to="/categoria/combo">Combo</NavLink>
                         <NavLink to="/contacto">Contacto</NavLink>
                     </Nav>
+                    {carrito.length > 0 && (
+                    <>
                     <NavLink to="/carrito">
                         <CartWidget />
                     </NavLink>
+                    </>
+                    )}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        </>
     );
 }
 

@@ -27,8 +27,9 @@ const ItemDetail = ({producto}) => {
             });
         }
     };
+
     return (
-        <Card id={producto.id}>
+        <Card key={producto.id}>
             <Card.Header>{producto.nombre}</Card.Header>
             <Card.Body>{producto.descripcion}</Card.Body>
             <Card.Footer>

@@ -6,17 +6,12 @@ import { contexto } from "../context/CartContext.js";
 
 const CartWidget = () => {
 	const resultado = useContext(contexto);
-	const carrito = resultado.cart;
+	const cantidad = resultado.cantidadActual;
 	return (
-		<>
-		{carrito.length > 0 && (
-			<>
 		<Button variant="outline-secondary">
 			<FontAwesomeIcon icon={faCartShopping} className="shopping-cart" />
+			<span className="badge span-cantidad">{cantidad}</span>
 		</Button>
-		</>
-		)}
-		</>
 	);
 };
 
