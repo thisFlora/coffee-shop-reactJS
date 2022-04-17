@@ -1,4 +1,4 @@
-import Header from './Header.js';
+import NavBar from './NavBar.js';
 import Footer from './Footer.js';
 import Main from './Main.js';
 import CartContext from '../context/CartContext.js';
@@ -10,7 +10,7 @@ function App() {
     return (
         <CartContext>
         <BrowserRouter>
-            <Header />
+            <NavBar />
             <Main />
             <Footer />
             <ToastContainer />

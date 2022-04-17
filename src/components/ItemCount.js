@@ -29,14 +29,14 @@ const ItemCount = ({initial, stock, onAdd}) => {
     return (
         <Card style={{padding: "10px"}}>
             <Card.Body>
-                <Card.Title>Cafecitos☕</Card.Title>
+                <Card.Title>☕</Card.Title>
                 <Card.Text>El stock disponible: {stock} unidades</Card.Text> 
                 <Button variant="outline-secondary" onClick={restar}>-</Button>
                 <Button variant="outline-secondary" disabled>{contador}</Button>
                 <Button variant="outline-secondary" onClick={aumentar}>+</Button>
             </Card.Body>
             <Card.Footer>
-            <Button variant="outline-primary" onClick={confirmar} disabled={deshabilitar}>Agregar al Carrito</Button>
+            <Button className="btn-1" onClick={confirmar} disabled={deshabilitar}>Agregar al Carrito</Button>
             </Card.Footer>
         </Card>
     );

@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext} from 'react'
 import { contexto } from "../context/CartContext.js";
 import { toast } from 'react-toastify';
 import { Table, Button, Container } from 'react-bootstrap';
@@ -6,49 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from 'react-router-dom';
 import pusheen from '../assets/img/pusheen.png';
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from '../database/firebase.js'
+
 
 const Cart = () => {
-
     const resultado = useContext(contexto);
     const carrito = resultado.cart;
-    const [idOrder, setIdOrder] = useState('');
-    console.log(idOrder);
-    const agregarOrden = () => {
-        const orden = {
-            buyer : {
-                nombre: "Juan",
-                telefono: "123456789",
-                email : "juancito@gmail.com"
-            },
-            items: carrito,
-            date: serverTimestamp(),
-            total: total()
-        };
-        toast.success('Se agregó la orden al carrito', {
-            position: "bottom-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-        });
-        const ordenRef = collection(db, "orders");
-        const pedido = addDoc(ordenRef, orden);
-
-        pedido 
-        .then(res =>{
-            setIdOrder(res.id);
-            resultado.clear();
-        }
-        )
-        .catch(()=> {
-            toast.error("Error al cargar orden");
-        })
-
-    };
 
     const removeItem = (id) => {
         resultado.removeItem(id);
@@ -117,10 +79,10 @@ const Cart = () => {
                             </thead>
                             <tbody>
                                 {carrito &&
-                                    carrito.map((item) => {
+                                    carrito.map((item, index) => {
                                         return (
                                             <>
-                                                <tr key={item.product.id}>
+                                                <tr key={index}>
                                                     <td>{item.product.nombre}</td>
                                                     <td>$ {item.product.precio}</td>
                                                     <td>{item.count}</td>
@@ -130,22 +92,23 @@ const Cart = () => {
                                                     </Button>
                                                     </td>
                                                 </tr>
+
                                             </>
                                         )
                                     })
                                 }
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Total a Pagar:</td>
-                                    <td>$ {total()}</td>
-                                </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Total a Pagar:</td>
+                                        <td>$ {total()}</td>
+                                    </tr>
                             </tbody>
                         </Table>
                         <div className="d-flex justify-content-end">
                             <NavLink to="/checkout">
-                                <Button variant="outline-secondary" onClick={agregarOrden}>
+                                <Button variant="outline-secondary" carrito={carrito}>
                                     Terminar mi compra
                                 </Button>
                             </NavLink>

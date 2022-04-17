@@ -38,7 +38,7 @@ const ItemDetail = ({producto}) => {
             <>
             <p>Seleccionaste {cantidad} unidades del producto.</p>
             <NavLink to="/carrito">
-            <Button variant="outline-primary">Ir al Carrito</Button>
+            <Button className="btn-1">Ir al Carrito</Button>
             </NavLink>
             </>
             )}

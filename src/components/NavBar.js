@@ -1,4 +1,4 @@
-import { React, useContext} from 'react';
+import { React, useContext } from 'react';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../assets/img/logo.svg";
 import CartWidget from "./CartWidget";
@@ -11,6 +11,7 @@ const NavBar = () => {
 
     return (
         <>
+        <header id="main-header">
         <Navbar bg="light" expand="lg">
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/">
@@ -22,7 +23,6 @@ const NavBar = () => {
                         <NavLink to="/">Inicio</NavLink>
                         <NavLink to="/categoria/simple">Simple</NavLink>
                         <NavLink to="/categoria/combo">Combo</NavLink>
-                        <NavLink to="/contacto">Contacto</NavLink>
                     </Nav>
                     {carrito.length > 0 && (
                     <>
@@ -34,6 +34,7 @@ const NavBar = () => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+        </header>
         </>
     );
 }
