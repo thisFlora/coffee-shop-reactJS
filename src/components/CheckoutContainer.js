@@ -1,6 +1,5 @@
 import { React, useState, useContext } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { toast } from 'react-toastify';
 import { contexto } from '../context/CartContext';
 import { useNavigate } from "react-router-dom";
 import Checkout from './Checkout';
@@ -9,7 +8,7 @@ const CheckoutContainer = () => {
      const [nombre, setNombre] = useState('');
      const [telefono, setTelefono] = useState('');
      const [correo, setCorreo] = useState('');
-     const { sendOrder, idOrder, clear, cart } = useContext(contexto);
+     const { sendOrder, clear, cart } = useContext(contexto);
      const navigation = useNavigate();
      
      const handleChange = (e) => {
@@ -24,19 +23,10 @@ const CheckoutContainer = () => {
      };
 
      const sendAlert = () => {
-          toast.success('Su orden tiene el id: ' + idOrder , 
-          {
-               position: "top-right",
-               hideProgressBar: false,
-               closeOnClick: true,
-               pauseOnHover: false,
-               draggable: true,
-               progress: undefined,
-          });
-          clear();
           setTimeout(
                navigation('/thanks'),2000
           )
+          clear();
      }
 
      return (

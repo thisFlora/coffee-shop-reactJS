@@ -1,5 +1,8 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/321c56a5-ad73-4d47-8372-4aa36c7035f1/deploy-status)](https://app.netlify.com/sites/superb-begonia-fed4ef/deploys)
+
 # OH MY COFFEE☕
-URL demo:
+URL demo: https://superb-begonia-fed4ef.netlify.app/
+
 ## Descripción:
 Oh my coffee es una e-commerce orientado a la compra de café, es una app creada para proyecto final de ReactJS de Coder House.
 Todos los procedimientos de la aplicación son almacenados en Firebase, se utilizó para los iconos Fontawesome, SASS para los estilos y toastify para las alertas de la aplicación.
@@ -17,3 +20,6 @@ Todos los procedimientos de la aplicación son almacenados en Firebase, se utili
 - Abrir el proyecto con un editor de código 
 - Instalar las dependencias con npm install
 - Iniciar el servidor con npm start
+
+## Demo
+![alt text](/public/img/gif-ohmycoffee.gif)
